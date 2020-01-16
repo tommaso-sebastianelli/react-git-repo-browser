@@ -10,11 +10,15 @@ import {
 import Start from './start/start';
 import Browser from './browser/browser';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import history from './history';
 
 class App extends React.Component {
 
   render() {
+    // if(true){
+    //   return <div className="loading"><CircularProgress /></div>
+    // }
     return (
       <CssBaseline>
         <div>
