@@ -1,0 +1,11 @@
+.search-block{
+    min-width: 200px;
+    flex: auto;
+}
+
+/* .search-block .search-hint{
+} */
+
+.search-block .search-input{
+    width:100%;
+}

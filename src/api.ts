@@ -1,4 +1,4 @@
-import Observable from 'rxjs/Observable'
+import { of } from 'rxjs';
 
 const CONFIG = {
     API_URL: 'https://api.github.com',
@@ -12,4 +12,9 @@ const CONFIG = {
 
 const PATHS = {
     repositories: '/repos'
-  };
+};
+
+export const LIST_COMMITS = (owner: string, repoName: string) => {
+    const url = `${CONFIG.API_URL}${this.PATHS.repositories}/${owner}/${repoName}/commits`;
+    return of({}); // TODO 
+}

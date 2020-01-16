@@ -7,18 +7,14 @@ import {
   Route,
 } from "react-router-dom";
 
-import Start from './start/start';
-import Browser from './browser/browser';
+import Start from './containers/start/start';
+import Browser from './containers/browser/browser';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import history from './history';
 
 class App extends React.Component {
 
   render() {
-    // if(true){
-    //   return <div className="loading"><CircularProgress /></div>
-    // }
     return (
       <CssBaseline>
         <div>
@@ -29,7 +25,7 @@ class App extends React.Component {
               <Route path="/start">
                 <Start />
               </Route>
-              <Route path="/browser">
+              <Route path="/browser/:user/:repo">
                 <Browser />
               </Route>
               <Route path="*">
