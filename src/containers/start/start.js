@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import './start.css'
 import Container from '@material-ui/core/Container';
 import { AsyncComponent } from '../../components/async';
-import {Search} from './search/search';
+import Search from './search/search';
 
 class Start extends PureComponent {
 
