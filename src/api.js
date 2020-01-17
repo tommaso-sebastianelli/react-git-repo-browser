@@ -14,7 +14,7 @@ const PATHS = {
     repositories: '/repos'
 };
 
-export const LIST_COMMITS = (owner: string, repoName: string) => {
+export const LIST_COMMITS = (owner, repoName) => {
     const url = `${CONFIG.API_URL}${this.PATHS.repositories}/${owner}/${repoName}/commits`;
     return of({}); // TODO 
 }
