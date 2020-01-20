@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 
 import Start from './containers/start/start';
@@ -28,7 +29,7 @@ class App extends React.Component {
                 <Browser />
               </Route>
               <Route path="*">
-                <Start />
+                <Redirect  to="/start" />
               </Route>
             </Switch>
           </Router>

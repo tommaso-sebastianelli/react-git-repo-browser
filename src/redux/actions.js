@@ -1,3 +1,4 @@
+// import {delay} from 'rxjs/operators';
 import { listCommits } from '../api';
 import {
   SEARCH_REPO_START,
@@ -5,13 +6,16 @@ import {
   SEARCH_REPO_FAILURE
 } from "./actionTypes";
 
-import history from '../history';
 
 export const searchRepo = (user, repo) => {
   return dispatch => {
-    dispatch(searchRepoStart());
+    dispatch(searchRepoStart(user, repo));
 
-    listCommits(user, repo).subscribe(
+    listCommits(user, repo)
+    // .pipe(
+    //   delay(3000)
+    // )
+    .subscribe(
       res => {
         dispatch(searchRepoSuccess(res.data));
       },
@@ -20,17 +24,17 @@ export const searchRepo = (user, repo) => {
       },
       () => {
         console.log('LIST_COMMITS completed.');
-        history.push(`browser/${user}/${repo}`);
-        history.go();
       }
     );
   }
 };
 
-const searchRepoStart = () => ({
+const searchRepoStart = (user, repo) => ({
   type: SEARCH_REPO_START,
   payload:{
-    loading: true
+    loading: true,
+    user,
+    repo
   }
 });
 

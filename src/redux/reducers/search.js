@@ -1,7 +1,9 @@
 import { SEARCH_REPO_START, SEARCH_REPO_SUCCESS, SEARCH_REPO_FAILURE } from "../actionTypes";
 
 const initialState = {
-  loading : false,
+  user: '',
+  repo: '',
+  loading: false,
   commits: [],
   error: null
 };
@@ -9,10 +11,12 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SEARCH_REPO_START: {
-      const { loading } = action.payload;
+      const { loading, user, repo } = action.payload;
       return {
         ...state,
-        loading: loading
+        loading: loading,
+        user: user,
+        repo: repo
       };
     }
     case SEARCH_REPO_SUCCESS: {
