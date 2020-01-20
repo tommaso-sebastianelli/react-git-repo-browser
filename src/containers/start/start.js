@@ -9,7 +9,8 @@ class Start extends PureComponent {
     render() {
         return (
             <Container maxWidth="sm" className="container m-t-xl">
-                <AsyncComponent component={<Search/>}></AsyncComponent>
+                {/* <AsyncComponent component={<Search/>}></AsyncComponent> */}
+                <Search/>
             </Container>
         )
     }

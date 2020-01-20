@@ -5,7 +5,7 @@ import Input from '@material-ui/core/Input';
 
 import { connect } from 'react-redux'
 import store from '../../../redux/store'
-import {searchRepo} from '../../../redux/actions';
+import { searchRepo } from '../../../redux/actions';
 
 import history from '../.././../history';
 
@@ -13,26 +13,26 @@ import './search.css';
 
 const Search = (props) => {
 
-    let inputValue= '';
+    let inputValue = '';
     const [inputValidity, setInputValidity] = useState(false);
 
     const validSearchString = (val) => {
         const check1 = val.split('').filter(c => c === '/').length === 1;
         const check2 = val.indexOf('/') > 0 && val.indexOf('/') < val.length - 1;
         return check1 && check2;
-      }
+    }
 
-    const getUserFromInputValue = (val)=> {
+    const getUserFromInputValue = (val) => {
         return val.split('/')[0];
     }
-    
-    const getRepoFromInputValue = (val)=> {
+
+    const getRepoFromInputValue = (val) => {
         return val.split('/')[1];
     }
 
     const updateInputValue = (evt) => {
         console.log(evt.target.value);
-        inputValue= evt.target.value;
+        inputValue = evt.target.value;
         setInputValidity(validSearchString(evt.target.value));
     }
 
@@ -40,8 +40,6 @@ const Search = (props) => {
         const user = getUserFromInputValue(inputValue);
         const repo = getRepoFromInputValue(inputValue);
         store.dispatch(searchRepo(user, repo));
-        history.push(`/browser/${user}/${repo}`);
-        history.go();
     }
 
     return (
@@ -57,4 +55,6 @@ const Search = (props) => {
     )
 }
 
-export default connect(null,null)(Search)
+const mapStateToProps = (state) => state.commits;
+
+export default connect(mapStateToProps, null)(Search)

@@ -1,4 +1,5 @@
-import { of } from 'rxjs';
+import axios from 'axios';
+import { from } from 'rxjs';
 
 const CONFIG = {
     API_URL: 'https://api.github.com',
@@ -14,7 +15,10 @@ const PATHS = {
     repositories: '/repos'
 };
 
-export const LIST_COMMITS = (owner, repoName) => {
-    const url = `${CONFIG.API_URL}${this.PATHS.repositories}/${owner}/${repoName}/commits`;
-    return of({}); // TODO 
+export const listCommits = (owner, repoName) => {
+    const url = `${CONFIG.API_URL}${PATHS.repositories}/${owner}/${repoName}/commits`;
+    return from(axios
+        .get(url, {
+          completed: false
+        }));
 }
