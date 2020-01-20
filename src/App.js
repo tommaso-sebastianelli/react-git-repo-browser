@@ -10,7 +10,6 @@ import {
 import Start from './containers/start/start';
 import Browser from './containers/browser/browser';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import history from './history';
 
 class App extends React.Component {
 
@@ -18,7 +17,7 @@ class App extends React.Component {
     return (
       <CssBaseline>
         <div>
-          <Router history={history}>
+          <Router>
             {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
             <Switch>

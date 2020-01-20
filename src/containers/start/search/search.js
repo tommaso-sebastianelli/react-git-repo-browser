@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import store from '../../../redux/store'
 import { searchRepo } from '../../../redux/actions';
 
-import history from '../.././../history';
 
 import './search.css';
 
@@ -55,6 +54,4 @@ const Search = (props) => {
     )
 }
 
-const mapStateToProps = (state) => state.commits;
-
-export default connect(mapStateToProps, null)(Search)
+export default connect(null, null)(Search)

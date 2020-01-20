@@ -5,6 +5,8 @@ import {
   SEARCH_REPO_FAILURE
 } from "./actionTypes";
 
+import history from '../history';
+
 export const searchRepo = (user, repo) => {
   return dispatch => {
     dispatch(searchRepoStart());
@@ -18,6 +20,8 @@ export const searchRepo = (user, repo) => {
       },
       () => {
         console.log('LIST_COMMITS completed.');
+        history.push(`browser/${user}/${repo}`);
+        history.go();
       }
     );
   }
