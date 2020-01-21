@@ -9,6 +9,7 @@ import {
 
 export const searchRepo = (user, repo) => {
   return dispatch => {
+    console.log('search dispatched');
     dispatch(searchRepoStart(user, repo));
 
     listCommits(user, repo)
@@ -17,9 +18,11 @@ export const searchRepo = (user, repo) => {
     // )
     .subscribe(
       res => {
+        console.log('LIST_COMMITS success.');
         dispatch(searchRepoSuccess(res.data));
       },
       err => {
+        console.log('LIST_COMMITS failure.');
         dispatch(searchRepoFailure(err.message));
       },
       () => {

@@ -1,5 +1,13 @@
 import React, { PureComponent } from 'react'
+
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import FolderIcon from '@material-ui/icons/Folder';
+import GitHub from '@material-ui/icons/GitHub';
 
 import { connect } from 'react-redux'
 import store from '../../redux/store';
@@ -7,16 +15,10 @@ import { searchRepo } from '../../redux/actions';
 
 import history from '../../history';
 
+import './browser.css';
 
 
 class Browser extends PureComponent {
-    // constructor(props) {
-    //     super(props)
-
-    //     // this.state = {
-
-    //     // }
-    // }
 
     componentDidMount() {
         const user = history.location.pathname.split('/')[2];
@@ -26,17 +28,48 @@ class Browser extends PureComponent {
 
     render() {
         return (
-            <div>
+            <div className="browser">
                 {this.props.loading ?
                     <CircularProgress />
                     : <div>
-
+                        <Drawer className="drawer" variant="permanent" anchor="left" open={true} >
+                            <List dense={true}>
+                                <ListItem divider={true}>
+                                    <ListItemIcon>
+                                        <GitHub />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary="Repo Name"
+                                        secondary="Total commits"
+                                    />
+                                </ListItem>
+                                <List className="commitsList" >
+                                    {this.props.commits.map((commit, index) => {
+                                        return <ListItem key={index}>
+                                            <ListItemIcon>
+                                                <FolderIcon />
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={`${commit.author.name} on ${commit.author.date}`}
+                                                secondary={commit.message}
+                                            />
+                                        </ListItem>
+                                    })}
+                                </List>
+                            </List>
+                        </Drawer>
                     </div>
-
                 }
             </div>
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        loading: state.searchReducer.loading,
+        commits: state.searchReducer.commits
+        .map(c => c.commit)
+    }
+};
 
-export default connect(state => ({ loading: state.searchReducer.loading }), null)(Browser)
+export default connect(mapStateToProps, null)(Browser)

@@ -41,7 +41,6 @@ class Search extends React.PureComponent {
         const repo = this.getRepoFromInputValue(this.state.inputValue);
         history.replace(`browser/${user}/${repo}`);
         history.go();
-        // store.dispatch(searchRepo(user, repo));
     }
 
     render() {
