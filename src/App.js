@@ -25,7 +25,7 @@ class App extends React.Component {
               <Route path="/start">
                 <Start />
               </Route>
-              <Route path="/browser/:user/:repo">
+              <Route path="/browser/:user/:repo/:commit?">
                 <Browser />
               </Route>
               <Route path="*">

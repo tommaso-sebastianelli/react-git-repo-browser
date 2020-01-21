@@ -1,9 +1,12 @@
 // import {delay} from 'rxjs/operators';
-import { listCommits } from '../api';
+import { listCommits, getCommit } from '../api';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
-  SEARCH_REPO_FAILURE
+  SEARCH_REPO_FAILURE,
+  SELECT_COMMIT_START,
+  SELECT_COMMIT_SUCCESS,
+  SELECT_COMMIT_FAILURE
 } from "./actionTypes";
 
 
@@ -56,3 +59,51 @@ const searchRepoFailure = error => ({
     loading: false
   }
 });
+
+export const selectCommit = (user, repo, id) => {
+  return dispatch => {
+    console.log('search dispatched');
+    dispatch(selectCommitStart(id));
+
+    getCommit(user, repo)
+    .subscribe(
+      res => {
+        console.log('SELECT_COMMIT success.');
+        dispatch(selectCommitSuccess(res.data));
+      },
+      err => {
+        console.log('SELECT_COMMIT failure.');
+        dispatch(selectCommitFailure(err.message));
+      },
+      () => {
+        console.log('SELECT_COMMIT completed.');
+      }
+    );
+  }
+};
+
+const selectCommitStart = id => ({
+  type: SELECT_COMMIT_START,
+  payload: {
+    selectedCommitId: id,
+    loading: true
+  }
+});
+
+const selectCommitSuccess = data => ({
+  type: SELECT_COMMIT_SUCCESS,
+  payload: {
+    commit: data,
+    loading: false
+  }
+});
+
+const selectCommitFailure = error => ({
+  type: SELECT_COMMIT_FAILURE,
+  payload: {
+    error,
+    loading: false
+  }
+});
+
+
