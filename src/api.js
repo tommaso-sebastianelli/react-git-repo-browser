@@ -25,6 +25,5 @@ export const getCommit = (owner, repoName, id) => {
     const url = `${CONFIG.API_URL}${PATHS.repositories}/${owner}/${repoName}/commits/${id}`;
     return from(axios
         .get(url, {
-          completed: false
-        }));
+          }));
 }
