@@ -1,6 +1,6 @@
-// import {delay} from 'rxjs/operators';
-// import { listCommits, getCommit } from '../api.mock';
-import { listCommits, getCommit } from '../api';
+import {delay} from 'rxjs/operators';
+import { listCommits, getCommit } from '../api.mock';
+// import { listCommits, getCommit } from '../api';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
@@ -17,9 +17,9 @@ export const searchRepo = (user, repo) => {
     dispatch(searchRepoStart(user, repo));
 
     listCommits(user, repo)
-    // .pipe(
-    //   delay(3000)
-    // )
+    .pipe(
+      delay(200)
+    )
     .subscribe(
       res => {
         console.log('LIST_COMMITS success.');
@@ -67,6 +67,9 @@ export const selectCommit = (user, repo, id) => {
     dispatch(selectCommitStart(id));
 
     getCommit(user, repo, id)
+    .pipe(
+      delay(200)
+    )
     .subscribe(
       res => {
         console.log('SELECT_COMMIT success.');

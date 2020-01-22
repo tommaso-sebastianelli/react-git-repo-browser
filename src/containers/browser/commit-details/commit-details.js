@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 
 import { connect } from 'react-redux'
-import { selectCommit } from '../../redux/actions';
-import { getSelectedCommitState } from '../../redux/selectors';
+import { selectCommit } from '../../../redux/actions';
+import { getSelectedCommitState } from '../../../redux/selectors';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -14,9 +14,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import FolderIcon from '@material-ui/icons/Folder';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import Icon from '../icon/icon';
+import Icon from '../../../components/icon/icon';
 
-import history from '../../history';
+import history from '../../../history';
 
 import Moment from 'react-moment';
 
@@ -102,10 +102,10 @@ function CommitDetails(props) {
                             <Typography variant="h6" >
                                 File changed:&nbsp;{props.data.files.length}
                             </Typography>
-                            <div className="file-list-container" maxWidth="xs">
+                            <div className="file-list-container" >
                                 <List dense={true}>
-                                    {props.data.files.map(f => {
-                                        return <ListItem>
+                                    {props.data.files.map((f, key) => {
+                                        return <ListItem key={key}>
                                             <ListItemIcon>
                                                 <FolderIcon />
                                             </ListItemIcon>

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 
-import CircularProgress from '@material-ui/core/CircularProgress';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -22,7 +21,8 @@ import history from '../../history';
 
 import './browser.css';
 
-import CommitDetail from '../../components/commit-details/commit-details';
+import Loading from '../../components/loading/loading';
+import CommitDetail from './commit-details/commit-details';
 import CommitPlaceholder from '../../components/commit-placeholder/commit-placeholder';
 
 
@@ -54,7 +54,7 @@ class Browser extends PureComponent {
         return (
             <div className="browser">
                 {this.props.loading ?
-                    <CircularProgress />
+                    <Loading/>
                     : <div>
                         <AppBar position="static">
                             <Toolbar>
