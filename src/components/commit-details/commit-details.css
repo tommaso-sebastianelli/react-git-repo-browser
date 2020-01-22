@@ -1,0 +1,28 @@
+.commit-detail .row{
+    margin-bottom: 8px;
+}
+
+.commit-detail .row.detail{
+    color: #888;
+    fill: #888;
+}
+
+.commit-detail .row.detail .file-list{
+    margin-top:8px;
+    min-width: 100%;
+}
+
+.commit-detail .row.detail .file-list .file-list-container{
+    margin: auto;
+    min-width: 100%;
+}
+
+.commit-detail .row.detail .file-list .file-list-container .MuiListItemText-primary{
+ font-size: large;
+}
+
+.commit-detail .row.detail .file-change{
+    display: flex;
+    margin-left: 8px;
+}
+

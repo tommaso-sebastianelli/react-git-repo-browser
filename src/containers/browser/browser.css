@@ -1,5 +1,5 @@
 .browser .drawer > div{
-    width: 550px;
+    width: 500px;
 }
 
 .browser .MuiDrawer-root {
@@ -9,9 +9,9 @@
 }
 
 .browser .MuiContainer-root {
-    max-width: calc(100% - 550px);
-    max-width: -webkit-calc(100% - 550px);
-    max-width: -moz-calc(100% - 550px);
+    max-width: calc(100% - 500px);
+    max-width: -webkit-calc(100% - 500px);
+    max-width: -moz-calc(100% - 500px);
     margin-right: 0;
     padding: 32px;
 }
