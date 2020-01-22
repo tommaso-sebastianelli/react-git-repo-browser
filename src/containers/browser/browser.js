@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import GitHub from '@material-ui/icons/GitHub';
-import Icon from '../../components/icon';
+import Icon from '../../components/icon/icon';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -22,7 +22,8 @@ import history from '../../history';
 
 import './browser.css';
 
-import CommitDetail from '../../components/commit-details';
+import CommitDetail from '../../components/commit-details/commit-details';
+import CommitPlaceholder from '../../components/commit-placeholder/commit-placeholder';
 
 
 class Browser extends PureComponent {
@@ -38,6 +39,17 @@ class Browser extends PureComponent {
         return new Date(isoDate).toLocaleDateString("en-US", options);
     }
 
+    goToStart(){
+        history.push('/start');
+        history.go();
+    }
+
+    selectCommit(commit){
+        const id = commit.tree.sha
+        history.push(`/browser/${this.props.user}/${this.props.repo}/${id}`);
+        history.go();
+    }
+
     render() {
         return (
             <div className="browser">
@@ -50,7 +62,7 @@ class Browser extends PureComponent {
                                     {`${this.props.user} - ${this.props.repo}`}
                                 </Typography>
 
-                                <Button color="inherit">New Search</Button>
+                                <Button color="inherit" onClick={this.goToStart}>New Search</Button>
                             </Toolbar>
                         </AppBar>
                         <Drawer className="drawer" variant="permanent" anchor="left" open={true} >
@@ -66,7 +78,7 @@ class Browser extends PureComponent {
                                 </ListItem>
                                 <List className="commitsList" >
                                     {this.props.commits.map((commit, index) => {
-                                        return <ListItem key={index}>
+                                        return <ListItem key={index} onClick={id => this.selectCommit(commit)}>
                                             <ListItemIcon>
                                                 <Icon icon="git-commit"></Icon>
                                             </ListItemIcon>
@@ -79,7 +91,7 @@ class Browser extends PureComponent {
                                 </List>
                             </List>
                         </Drawer>
-                        <CommitDetail></CommitDetail>
+                        {(this.props.commitSelected) ? <CommitDetail></CommitDetail> : <CommitPlaceholder></CommitPlaceholder>}
                     </div>
                 }
             </div>

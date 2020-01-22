@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 import { connect } from 'react-redux'
+import { selectCommit } from '../../redux/actions';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
-import Icon from '../components/icon';
+import Icon from '../icon/icon';
 
-function CommitDetails() {
+import history from '../../history';
+
+function CommitDetails(props) {
+
+    useEffect(() => {
+        const user = history.location.pathname.split('/')[2];
+        const repo = history.location.pathname.split('/')[3];
+        const id = history.location.pathname.split('/')[4];
+        props.onRender(user, repo, id);
+    },[]);
+
     return (
         <Container maxWidth="xs">
             <Grid container={true} direction="column">
@@ -73,17 +85,16 @@ function CommitDetails() {
                     </Grid>
                 </Grid>
             </Grid>
-
         </Container>
     )
 }
 
 const mapStateToProps = (state) => ({
-
+    commit: state.commitReducer.commit
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
+    onRender: (user, repo, id) => dispatch(selectCommit(user, repo, id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommitDetails)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(CommitDetails))

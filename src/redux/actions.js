@@ -1,5 +1,5 @@
 // import {delay} from 'rxjs/operators';
-import { listCommits, getCommit } from '../api';
+import { listCommits, getCommit } from '../api.mock';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
@@ -62,10 +62,10 @@ const searchRepoFailure = error => ({
 
 export const selectCommit = (user, repo, id) => {
   return dispatch => {
-    console.log('search dispatched');
+    console.log('SELECT_COMMIT started.');
     dispatch(selectCommitStart(id));
 
-    getCommit(user, repo)
+    getCommit(user, repo, id)
     .subscribe(
       res => {
         console.log('SELECT_COMMIT success.');

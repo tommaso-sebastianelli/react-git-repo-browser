@@ -10,27 +10,27 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case SELECT_COMMIT_START: {
-            const { id, loading } = action.payload;
+            const { selectedCommitId, loading } = action.payload;
             return {
                 ...state,
-                loading: loading,
-                selectedCommitId: id
+                loading,
+                selectedCommitId
             };
         }
         case SELECT_COMMIT_SUCCESS: {
-            const { loading, data } = action.payload;
+            const { loading, commit } = action.payload;
             return {
                 ...state,
-                loading: loading,
-                commit: data
+                loading,
+                commit
             };
         }
         case SELECT_COMMIT_FAILURE: {
             const { loading, error } = action.payload;
             return {
                 ...state,
-                loading: loading,
-                error: error
+                loading,
+                error
             };
         }
         default:
