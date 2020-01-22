@@ -84,16 +84,16 @@ function CommitDetails(props) {
                                     <Grid container={true} alignItems="center">
                                         <Icon icon="file-plus"></Icon>
                                         <Typography variant="h6" >
-                                            6
-                                    </Typography>
+                                            {props.data.stats.additions}
+                                        </Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid item={true}>
                                     <Grid container={true} alignItems="center">
                                         <Icon icon="file-minus"></Icon>
                                         <Typography variant="h6" >
-                                            6
-                                    </Typography>
+                                            {props.data.stats.deletions}
+                                        </Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>

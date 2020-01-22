@@ -34,6 +34,13 @@ class Browser extends PureComponent {
         store.dispatch(searchRepo(user, repo));
     }
 
+    componentDidUpdate(){
+        if(this.props.error !== null){
+            history.push('/start');
+            history.go();
+        }
+    }
+
     formatDate(isoDate) {
         const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
         return new Date(isoDate).toLocaleDateString("en-US", options);
@@ -103,7 +110,8 @@ const mapStateToProps = state => {
         commits: getCommitListState(state.searchReducer)
             .map(c => c.commit),
         user: getUserState(state.searchReducer),
-        repo: getRepoState(state.searchReducer)
+        repo: getRepoState(state.searchReducer),
+        error: state.searchReducer.error
     }
 };
 

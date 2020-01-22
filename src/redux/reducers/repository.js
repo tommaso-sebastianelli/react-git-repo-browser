@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: loading,
-        error: error
+        error
       };
     }
     default:

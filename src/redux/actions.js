@@ -1,6 +1,7 @@
-import {delay} from 'rxjs/operators';
-import { listCommits, getCommit } from '../api.mock';
-// import { listCommits, getCommit } from '../api';
+import { throwError } from 'rxjs';
+import { delay, mergeMap } from 'rxjs/operators';
+// import { listCommits, getCommit } from '../api.mock';
+import { listCommits, getCommit } from '../api';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
@@ -17,28 +18,29 @@ export const searchRepo = (user, repo) => {
     dispatch(searchRepoStart(user, repo));
 
     listCommits(user, repo)
-    .pipe(
-      delay(200)
-    )
-    .subscribe(
-      res => {
-        console.log('LIST_COMMITS success.');
-        dispatch(searchRepoSuccess(res.data));
-      },
-      err => {
-        console.log('LIST_COMMITS failure.');
-        dispatch(searchRepoFailure(err.message));
-      },
-      () => {
-        console.log('LIST_COMMITS completed.');
-      }
-    );
+      .pipe(
+        // mergeMap(()=> throwError(new Error('test'))),
+        // delay(2000)
+      )
+      .subscribe(
+        res => {
+          console.log('LIST_COMMITS success.');
+          dispatch(searchRepoSuccess(res.data));
+        },
+        err => {
+          console.log('LIST_COMMITS failure.');
+          dispatch(searchRepoFailure(err.message));
+        },
+        () => {
+          console.log('LIST_COMMITS completed.');
+        }
+      );
   }
 };
 
 const searchRepoStart = (user, repo) => ({
   type: SEARCH_REPO_START,
-  payload:{
+  payload: {
     loading: true,
     user,
     repo
@@ -67,22 +69,22 @@ export const selectCommit = (user, repo, id) => {
     dispatch(selectCommitStart(id));
 
     getCommit(user, repo, id)
-    .pipe(
-      delay(200)
-    )
-    .subscribe(
-      res => {
-        console.log('SELECT_COMMIT success.');
-        dispatch(selectCommitSuccess(res.data));
-      },
-      err => {
-        console.log('SELECT_COMMIT failure.');
-        dispatch(selectCommitFailure(err.message));
-      },
-      () => {
-        console.log('SELECT_COMMIT completed.');
-      }
-    );
+      .pipe(
+        delay(200)
+      )
+      .subscribe(
+        res => {
+          console.log('SELECT_COMMIT success.');
+          dispatch(selectCommitSuccess(res.data));
+        },
+        err => {
+          console.log('SELECT_COMMIT failure.');
+          dispatch(selectCommitFailure(err.message));
+        },
+        () => {
+          console.log('SELECT_COMMIT completed.');
+        }
+      );
   }
 };
 
