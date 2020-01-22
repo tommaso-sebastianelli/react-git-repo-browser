@@ -39,7 +39,7 @@ class Search extends React.PureComponent {
     onRepoSearch = () => {
         const user = this.getUserFromInputValue(this.state.inputValue);
         const repo = this.getRepoFromInputValue(this.state.inputValue);
-        history.replace(`browser/${user}/${repo}`);
+        history.push(`/browser/${user}/${repo}`);
         history.go();
     }
 
