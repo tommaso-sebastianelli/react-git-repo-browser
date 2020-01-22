@@ -39,12 +39,12 @@ class Browser extends PureComponent {
         return new Date(isoDate).toLocaleDateString("en-US", options);
     }
 
-    goToStart(){
+    goToStart() {
         history.push('/start');
         history.go();
     }
 
-    selectCommit(commit){
+    selectCommit(commit) {
         const id = commit.tree.sha
         history.push(`/browser/${this.props.user}/${this.props.repo}/${id}`);
         history.go();
@@ -59,9 +59,8 @@ class Browser extends PureComponent {
                         <AppBar position="static">
                             <Toolbar>
                                 <Typography variant="h6" className="app-bar-title">
-                                    {`${this.props.user} - ${this.props.repo}`}
+                                    React Git Repo Browser
                                 </Typography>
-
                                 <Button color="inherit" onClick={this.goToStart}>New Search</Button>
                             </Toolbar>
                         </AppBar>
