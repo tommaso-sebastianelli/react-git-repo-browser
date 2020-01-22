@@ -16,7 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
 import store from '../../redux/store';
 import { searchRepo } from '../../redux/actions';
-import { getUserState, getRepoState } from '../../redux/selectors';
+import { getCommitListState, getLoadingState, getUserState, getRepoState } from '../../redux/selectors';
 
 import history from '../../history';
 
@@ -99,8 +99,8 @@ class Browser extends PureComponent {
 }
 const mapStateToProps = state => {
     return {
-        loading: state.searchReducer.loading,
-        commits: state.searchReducer.commits
+        loading: getLoadingState(state.searchReducer),
+        commits: getCommitListState(state.searchReducer)
             .map(c => c.commit),
         user: getUserState(state.searchReducer),
         repo: getRepoState(state.searchReducer)
