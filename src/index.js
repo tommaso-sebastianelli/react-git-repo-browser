@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux'
 import store from './redux/store'
+import ErrorHandler from './components/errorHandler/error-handler';
 
 import './index.css';
 import './spacing.css';
@@ -13,6 +14,7 @@ import './spacing.css';
 ReactDOM.render(
     <Provider store={store}>
         <App />
+        <ErrorHandler></ErrorHandler>
     </Provider>
     , document.getElementById('root'));
 

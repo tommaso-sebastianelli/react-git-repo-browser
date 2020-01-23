@@ -17,7 +17,6 @@ class App extends React.Component {
   render() {
     return (
       <CssBaseline>
-        <div>
           <Router>
             {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
@@ -36,7 +35,6 @@ class App extends React.Component {
               </Route>
             </Switch>
           </Router>
-        </div>
       </CssBaseline>
     );
   }
