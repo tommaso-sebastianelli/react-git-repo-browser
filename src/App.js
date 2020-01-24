@@ -17,6 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <CssBaseline>
+        <React.StrictMode>
           <Router>
             {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
@@ -25,16 +26,17 @@ class App extends React.Component {
                 <Start />
               </Route>
               <Route path="/browser/:user/:repo/:commit">
-                <Browser commitSelected={true}/>
+                <Browser commitSelected={true} />
               </Route>
               <Route path="/browser/:user/:repo">
                 <Browser />
               </Route>
               <Route path="*">
-                <Redirect  to="/start" />
+                <Redirect to="/start" />
               </Route>
             </Switch>
           </Router>
+        </React.StrictMode>
       </CssBaseline>
     );
   }
