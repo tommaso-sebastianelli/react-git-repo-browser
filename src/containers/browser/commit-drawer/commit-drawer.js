@@ -28,6 +28,10 @@ function CommitDrawer(props) {
         history.go();
     }
 
+    const isSelected = (commit) => {
+        return props.selectedCommitId === commit.tree.sha;
+    }
+
     return (
         <Drawer className="drawer" variant="permanent" anchor="left" open={true} >
             <List dense={true}>
@@ -42,7 +46,7 @@ function CommitDrawer(props) {
                 </ListItem>
                 <List className="commits-list" >
                     {props.commits.map((commit, index) => {
-                        return <ListItem key={index} onClick={id => selectCommit(commit)}>
+                        return <ListItem className={'commit ' + (isSelected(commit) ? 'selected' : '')} key={index} onClick={id => selectCommit(commit)}>
                             <ListItemIcon className="commit-icon">
                                 <Icon icon="git-commit"></Icon>
                             </ListItemIcon>
@@ -63,6 +67,7 @@ const mapStateToProps = (state) => ({
         .map(c => c.commit),
     user: getUserState(state.searchReducer),
     repo: getRepoState(state.searchReducer),
+    selectedCommitId: state.commitReducer.selectedCommitId
 })
 
 export default connect(mapStateToProps, null)(CommitDrawer)
