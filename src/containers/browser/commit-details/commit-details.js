@@ -24,10 +24,14 @@ import './commit-details.css';
 
 function CommitDetails(props) {
 
+    const getUser = (path) => path.split('/')[2];
+    const getRepo = (path) => path.split('/')[3];
+    const getId = (path) => path.split('/')[4];
+
     useEffect(() => {
-        const user = history.location.pathname.split('/')[2];
-        const repo = history.location.pathname.split('/')[3];
-        const id = history.location.pathname.split('/')[4];
+        const user = getUser(history.location.pathname);
+        const repo = getRepo(history.location.pathname);
+        const id = getId(history.location.pathname);
         props.onMount(user, repo, id);
     }, []);
 
