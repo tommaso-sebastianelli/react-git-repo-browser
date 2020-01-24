@@ -13,3 +13,11 @@
     height: 95vh;
     overflow-y: auto;
 }
+
+.browser .drawer .commits-list .commit{
+    cursor: pointer;
+;}
+
+.browser .drawer .commits-list .commit.selected{
+    background: #DDD;
+}
