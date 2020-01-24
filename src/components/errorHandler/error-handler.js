@@ -11,17 +11,16 @@ function ErrorHandler(props) {
     useEffect(() => {
         console.log('error prop changed!');
         if (props.error) {
-            setOpen(true)
+            setOpen(true);
         }
     }, [props.error]);
 
     const handleClose = () => {
-        if (!props.error)
             setOpen(false);
     }
 
     return (
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error">
                 An error occurred!
             </Alert>
