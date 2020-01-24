@@ -98,7 +98,7 @@ function CommitDetails(props) {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item xs={12} md={6} item={true} className="file-list">
+                        <Grid xs={12} md={6} item={true} className="file-list">
                             <Typography variant="h6" >
                                 File changed:&nbsp;{props.data.files.length}
                             </Typography>

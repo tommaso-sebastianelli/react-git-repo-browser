@@ -1,5 +1,5 @@
-import { throwError } from 'rxjs';
-import { delay, mergeMap } from 'rxjs/operators';
+// import { throwError } from 'rxjs';
+import { delay/*, mergeMap*/ } from 'rxjs/operators';
 // import { listCommits, getCommit } from '../api.mock';
 import { listCommits, getCommit } from '../api';
 import {
