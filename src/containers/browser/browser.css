@@ -9,5 +9,8 @@
     max-width: -moz-calc(100% - 500px);
     margin-right: 0;
     padding: 32px;
+    right: 0;
+    position: absolute;
+    width: 100%;
 }
 

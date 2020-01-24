@@ -1,27 +1,32 @@
-.commit-detail .row{
+.commit-details{
+    margin: 0;
+    min-width: 100%;
+}
+
+.commit-details .row{
     margin-bottom: 8px;
 }
 
-.commit-detail .row.detail{
+.commit-details .row.detail{
     color: #888;
     fill: #888;
 }
 
-.commit-detail .row.detail .file-list{
+.commit-details .row.detail .file-list{
     margin-top:8px;
     min-width: 100%;
 }
 
-.commit-detail .row.detail .file-list .file-list-container{
+.commit-details .row.detail .file-list .file-list-container{
     margin: auto;
     min-width: 100%;
 }
 
-.commit-detail .row.detail .file-list .file-list-container .MuiListItemText-primary{
+.commit-details .row.detail .file-list .file-list-container .MuiListItemText-primary{
  font-size: large;
 }
 
-.commit-detail .row.detail .file-change{
+.commit-details .row.detail .file-change{
     display: flex;
     margin-left: 8px;
 }

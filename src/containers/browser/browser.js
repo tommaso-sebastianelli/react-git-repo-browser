@@ -18,7 +18,7 @@ import Loading from '../../components/loading/loading';
 import CommitDetail from './commit-details/commit-details';
 import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
 import CommitDrawer from '../browser/commit-drawer/commit-drawer';
-import { Container } from '@material-ui/core';
+import Box  from '@material-ui/core/Box';
 
 
 class Browser extends PureComponent {
@@ -49,9 +49,9 @@ class Browser extends PureComponent {
                             </Toolbar>
                         </AppBar>
                         <CommitDrawer></CommitDrawer>
-                        <Container className="detail-container">
+                        <Box className="detail-container">
                             {(this.props.commitSelected) ? <CommitDetail className="detail"></CommitDetail> : <CommitPlaceholder className="detail"></CommitPlaceholder>}
-                        </Container>
+                        </Box>
                     </div>
                 }
             </div>

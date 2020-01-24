@@ -32,7 +32,7 @@ function CommitDetails(props) {
     }, []);
 
     return props.data ? (
-        <Container maxWidth="xs" className="commit-detail">
+        <Container maxWidth="xs" className="commit-details">
             <Grid container={true} direction="column">
                 <Grid item={true} className="row">
                     <Typography variant="h4" >
