@@ -1,14 +1,9 @@
-.browser .drawer > div{
-    width: 500px;
+
+.browser .toolbar {
+    justify-content: space-between;
 }
 
-.browser .MuiDrawer-root {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.browser .MuiContainer-root {
+.browser .detail-container {
     max-width: calc(100% - 500px);
     max-width: -webkit-calc(100% - 500px);
     max-width: -moz-calc(100% - 500px);
@@ -16,15 +11,3 @@
     padding: 32px;
 }
 
-.browser .MuiDrawer-root .MuiPaper-root{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: auto;
-    height: 95vh;
-    overflow-y: auto;
-}
-
-.browser .MuiToolbar-root{
-    justify-content: space-between;
-}
