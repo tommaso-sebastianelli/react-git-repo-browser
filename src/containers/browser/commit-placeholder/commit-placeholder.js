@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
-import Icon from '../icon/icon';
+import Icon from '../../../components/icon/icon';
 
 import './commit-placeholder.css';
 

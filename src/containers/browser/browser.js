@@ -23,7 +23,7 @@ import './browser.css';
 
 import Loading from '../../components/loading/loading';
 import CommitDetail from './commit-details/commit-details';
-import CommitPlaceholder from '../../components/commit-placeholder/commit-placeholder';
+import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
 
 
 class Browser extends PureComponent {
@@ -82,10 +82,10 @@ class Browser extends PureComponent {
                                         secondary={this.props.commits.length + ' commits'}
                                     />
                                 </ListItem>
-                                <List className="commitsList" >
+                                <List className="commits-list" >
                                     {this.props.commits.map((commit, index) => {
                                         return <ListItem key={index} onClick={id => this.selectCommit(commit)}>
-                                            <ListItemIcon>
+                                            <ListItemIcon className="commit-icon">
                                                 <Icon icon="git-commit"></Icon>
                                             </ListItemIcon>
                                             <ListItemText
