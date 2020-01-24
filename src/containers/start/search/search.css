@@ -1,11 +1,16 @@
-.search-block{
+.block{
     min-width: 200px;
     flex: auto;
 }
 
-/* .search-block .search-hint{
-} */
+.block .search-hint{
+    text-align: left;
+}
 
-.search-block .search-input{
+.block .search-button button{
+    width:100%;
+}
+
+.block .search-input{
     width:100%;
 }
