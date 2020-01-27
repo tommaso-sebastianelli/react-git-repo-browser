@@ -52,7 +52,7 @@ function CommitDrawer(props) {
                             </ListItemIcon>
                             <ListItemText
                                 primary={commitData.commit.message}
-                                secondary={`${commitData.commit.author.name} on ${formatDate(commitData.author.date)}`}
+                                secondary={`${commitData.commit.author.name} on ${formatDate(commitData.commit.author.date)}`}
                             />
                         </ListItem>
                     })}

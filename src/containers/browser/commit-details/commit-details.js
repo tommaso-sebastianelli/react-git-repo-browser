@@ -17,7 +17,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '../../../components/icon/icon';
 
 import {useLocation} from 'react-router-dom';
-import history from '../../../history';
 
 import Moment from 'react-moment';
 
@@ -63,7 +62,7 @@ function CommitDetails(props) {
                         </Grid>
                         <Grid className="date" item={true}>
                             <Typography variant="h6">on&nbsp;
-                                <Moment>
+                                <Moment format="YYYY/MM/DD">
                                     {props.data.commit.author.date}
                                 </Moment>
                             </Typography>
