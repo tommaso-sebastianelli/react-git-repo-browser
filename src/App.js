@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+
+import Start from './containers/start/start';
+import Browser from './containers/browser/browser';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <CssBaseline>
+        <React.StrictMode>
+          <Router>
+            {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+            <Switch>
+              <Route path="/start">
+                <Start />
+              </Route>
+              <Route path="/browser/:user/:repo/:commit">
+                <Browser commitSelected={true} />
+              </Route>
+              <Route path="/browser/:user/:repo">
+                <Browser />
+              </Route>
+              <Route path="*">
+                <Redirect to="/start" />
+              </Route>
+            </Switch>
+          </Router>
+        </React.StrictMode>
+      </CssBaseline>
+    );
+  }
 }
 
 export default App;

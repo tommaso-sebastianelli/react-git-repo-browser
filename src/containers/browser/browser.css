@@ -1,0 +1,29 @@
+
+.browser .toolbar {
+    justify-content: space-between;
+}
+
+.browser .detail-container {
+    max-width: calc(100% - 500px);
+    max-width: -webkit-calc(100% - 500px);
+    max-width: -moz-calc(100% - 500px);
+    margin-right: 0;
+    padding: 32px;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+@media all and (max-width: 1005px) {
+    .detail-container{
+        overflow-x: hidden;
+        box-shadow: 0px -14px 9px -12px #CCC;
+        position: static!important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        border-top: solid 1px #AAA;
+    }
+}
+
