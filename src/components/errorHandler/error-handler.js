@@ -9,7 +9,6 @@ function ErrorHandler(props) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log('error prop changed!');
         if (props.error) {
             setOpen(true);
         }

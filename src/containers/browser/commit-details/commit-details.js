@@ -16,6 +16,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import Icon from '../../../components/icon/icon';
 
+import {useLocation} from 'react-router-dom';
 import history from '../../../history';
 
 import Moment from 'react-moment';
@@ -23,6 +24,8 @@ import Moment from 'react-moment';
 import './commit-details.css';
 
 function CommitDetails(props) {
+
+    let location = useLocation();
 
     const getUser = (path) => path.split('/')[2];
     const getRepo = (path) => path.split('/')[3];
@@ -33,7 +36,7 @@ function CommitDetails(props) {
         const repo = getRepo(history.location.pathname);
         const id = getId(history.location.pathname);
         props.onMount(user, repo, id);
-    }, []);
+    }, [location]);
 
     return props.data ? (
         <Container maxWidth="xs" className="commit-details">

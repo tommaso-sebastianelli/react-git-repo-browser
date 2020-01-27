@@ -1,7 +1,7 @@
 // import { throwError } from 'rxjs';
 import { delay/*, mergeMap*/ } from 'rxjs/operators';
-// import { listCommits, getCommit } from '../api.mock';
-import { listCommits, getCommit } from '../api';
+import { listCommits, getCommit } from '../api.mock';
+// import { listCommits, getCommit } from '../api';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
@@ -75,11 +75,13 @@ export const selectCommit = (user, repo, id) => {
       .subscribe(
         res => {
           console.log('SELECT_COMMIT success.');
+          console.log(res);
           dispatch(selectCommitSuccess(res.data));
         },
         err => {
           console.log('SELECT_COMMIT failure.');
           dispatch(selectCommitFailure(err.message));
+          console.error(err);
         },
         () => {
           console.log('SELECT_COMMIT completed.');
