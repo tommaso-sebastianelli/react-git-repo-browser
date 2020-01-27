@@ -6,9 +6,6 @@ import '@testing-library/jest-dom/extend-expect'
 import CommitDrawer from './commit-drawer'
 import { listCommits } from '../../../api.mock';
 import thunk from 'redux-thunk';
-import { MemoryRouter } from 'react-router';
-
-
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([thunk]);
 
