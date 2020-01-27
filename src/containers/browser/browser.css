@@ -18,7 +18,8 @@
 
 @media all and (max-width: 1005px) {
     .detail-container{
-        box-shadow: 0px 0px 9px 4px #CCC;
+        overflow-x: hidden;
+        box-shadow: 0px -14px 9px -12px #CCC;
         position: static!important;
         min-width: 100% !important;
         max-width: 100% !important;

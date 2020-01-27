@@ -79,7 +79,7 @@ function CommitDetails(props) {
                                     <Icon icon="git-commit"></Icon>
                                 </Grid>
                                 <Grid item={true}>
-                                    <Typography variant="h6" >
+                                    <Typography className="hash-id" variant="h6" >
                                         {props.data.sha}
                                     </Typography>
                                 </Grid>
@@ -117,7 +117,7 @@ function CommitDetails(props) {
                                             <ListItemIcon>
                                                 <FolderIcon />
                                             </ListItemIcon>
-                                            <ListItemText
+                                            <ListItemText class="file-name"
                                                 primary={f.filename}
                                                 secondary={f.status}
                                             />

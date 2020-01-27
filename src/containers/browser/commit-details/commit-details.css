@@ -14,6 +14,7 @@
     border-top: solid 1px grey;
     margin-top: 16px;
     padding-top: 8px;
+    width: 100%;
 }
 
 .commit-details .row.detail .hash{
@@ -30,8 +31,23 @@
     min-width: 100%;
 }
 
+.commit-details .row.detail .file-list .file-list-container .file-name{
+    flex: 1 1 75%;
+}
+
+.commit-details .row.detail .file-list .file-list-container .file-change{
+    flex: 0 0 auto;
+    justify-content: flex-end;
+}
+
+.commit-details .row.detail .file-list .file-list-container .file-name{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .commit-details .row.detail .file-list .file-list-container .MuiListItemText-primary{
- font-size: large;
+    font-size: large;
 }
 
 .commit-details .row.detail .file-change{
@@ -39,3 +55,8 @@
     margin-left: 8px;
 }
 
+@media all and (max-width: 1005px) {    
+    .commit-details .row.detail .hash .hash-id{
+        font-size: 0.75rem;
+    }
+}
