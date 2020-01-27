@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 
 import Browser from '../browser/browser'
 import thunk from 'redux-thunk';
-import { searchRepo } from '../../redux/actions';
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([thunk]);
 

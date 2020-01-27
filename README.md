@@ -1,7 +1,8 @@
 # React Git Repo browser
 
 <p align="center">
-<img src="https://github.com/tommaso-sebastianelli/angular-books/blob/master/screenshots" width="192">
+<img src="https://github.com/tommaso-sebastianelli/angular-books/blob/master/screenshots/screen_01" width="384">
+<img src="https://github.com/tommaso-sebastianelli/angular-books/blob/master/screenshots/screen_02" width="384">
 </p>
 
 A React-redux web app that lets you browse a git repository and view commit details.
