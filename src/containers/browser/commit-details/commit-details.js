@@ -32,10 +32,11 @@ function CommitDetails(props) {
     const getId = (path) => path.split('/')[4];
 
     useEffect(() => {
-        const user = getUser(history.location.pathname);
-        const repo = getRepo(history.location.pathname);
-        const id = getId(history.location.pathname);
+        const user = getUser(location.pathname);
+        const repo = getRepo(location.pathname);
+        const id = getId(location.pathname);
         props.onMount(user, repo, id);
+        console.log(location.pathname);
     }, [location]);
 
     return props.data ? (
@@ -72,8 +73,8 @@ function CommitDetails(props) {
 
                 <Grid item={true} className="row detail">
                     <Grid container={true} direction="row" alignItems="flex-end" spacing={2} justify="space-between">
-                        <Grid item={true} className="hash">
-                            <Grid container={true} direction="row" alignItems="flex-end" spacing={2}>
+                        <Grid item={true}>
+                            <Grid className="hash" container={true} direction="row" alignItems="flex-end" spacing={2}>
                                 <Grid item={true}>
                                     <Icon icon="git-commit"></Icon>
                                 </Grid>

@@ -1,7 +1,7 @@
 // import { throwError } from 'rxjs';
 import { delay/*, mergeMap*/ } from 'rxjs/operators';
-import { listCommits, getCommit } from '../api.mock';
-// import { listCommits, getCommit } from '../api';
+// import { listCommits, getCommit } from '../api.mock';
+import { listCommits, getCommit } from '../api';
 import {
   SEARCH_REPO_START,
   SEARCH_REPO_SUCCESS,
