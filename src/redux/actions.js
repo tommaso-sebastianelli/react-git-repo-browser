@@ -75,11 +75,13 @@ export const selectCommit = (user, repo, id) => {
       .subscribe(
         res => {
           console.log('SELECT_COMMIT success.');
+          console.log(res);
           dispatch(selectCommitSuccess(res.data));
         },
         err => {
           console.log('SELECT_COMMIT failure.');
           dispatch(selectCommitFailure(err.message));
+          console.error(err);
         },
         () => {
           console.log('SELECT_COMMIT completed.');

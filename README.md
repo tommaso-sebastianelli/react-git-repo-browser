@@ -1,3 +1,11 @@
+# React Git Repo browser
+
+<p align="center">
+<img src="https://github.com/tommaso-sebastianelli/angular-books/blob/master/screenshots" width="192">
+</p>
+
+A React-redux web app that lets you browse a git repository and view commit details.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { connect } from 'react-redux'
 import { selectCommit } from '../../../redux/actions';
-import { getSelectedCommitState } from '../../../redux/selectors';
+import { getSelectedCommitState, getLoadingState } from '../../../redux/selectors';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -16,20 +16,28 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import Icon from '../../../components/icon/icon';
 
-import history from '../../../history';
+import {useLocation} from 'react-router-dom';
 
 import Moment from 'react-moment';
 
 import './commit-details.css';
+import Loading from '../../../components/loading/loading';
 
 function CommitDetails(props) {
 
+    let location = useLocation();
+
+    const getUser = (path) => path.split('/')[2];
+    const getRepo = (path) => path.split('/')[3];
+    const getId = (path) => path.split('/')[4];
+
     useEffect(() => {
-        const user = history.location.pathname.split('/')[2];
-        const repo = history.location.pathname.split('/')[3];
-        const id = history.location.pathname.split('/')[4];
+        const user = getUser(location.pathname);
+        const repo = getRepo(location.pathname);
+        const id = getId(location.pathname);
         props.onMount(user, repo, id);
-    }, []);
+        console.log(location.pathname);
+    }, [location]);
 
     return props.data ? (
         <Container maxWidth="xs" className="commit-details">
@@ -44,7 +52,7 @@ function CommitDetails(props) {
                         <Grid className="author" item={true}>
                             <Grid container={true} alignItems="center" spacing={2}>
                                 <Grid item={true}>
-                                    <Avatar alt="author avatar" src="/static/images/avatar/1.jpg" />
+                                    <Avatar alt="author avatar" src={props.data.author.avatar_url} />
                                 </Grid>
                                 <Grid item={true}>
                                     <Typography variant="h6">
@@ -55,7 +63,7 @@ function CommitDetails(props) {
                         </Grid>
                         <Grid className="date" item={true}>
                             <Typography variant="h6">on&nbsp;
-                                <Moment>
+                                <Moment format="YYYY/MM/DD">
                                     {props.data.commit.author.date}
                                 </Moment>
                             </Typography>
@@ -65,13 +73,13 @@ function CommitDetails(props) {
 
                 <Grid item={true} className="row detail">
                     <Grid container={true} direction="row" alignItems="flex-end" spacing={2} justify="space-between">
-                        <Grid item={true} className="hash">
-                            <Grid container={true} direction="row" alignItems="flex-end" spacing={2}>
+                        <Grid item={true}>
+                            <Grid className="hash" container={true} direction="row" alignItems="flex-end" spacing={2}>
                                 <Grid item={true}>
                                     <Icon icon="git-commit"></Icon>
                                 </Grid>
                                 <Grid item={true}>
-                                    <Typography variant="h6" >
+                                    <Typography className="hash-id" variant="h6" >
                                         {props.data.sha}
                                     </Typography>
                                 </Grid>
@@ -109,7 +117,7 @@ function CommitDetails(props) {
                                             <ListItemIcon>
                                                 <FolderIcon />
                                             </ListItemIcon>
-                                            <ListItemText
+                                            <ListItemText class="file-name"
                                                 primary={f.filename}
                                                 secondary={f.status}
                                             />
@@ -131,11 +139,12 @@ function CommitDetails(props) {
                 </Grid>
             </Grid>
         </Container>
-    ) : <span />
+    ) : <Loading/>
 }
 
 const mapStateToProps = (state) => ({
-    data: getSelectedCommitState(state.commitReducer)
+    data: getSelectedCommitState(state.commitReducer),
+    loading: getLoadingState(state.commitReducer)
 })
 
 const mapDispatchToProps = (dispatch) => ({

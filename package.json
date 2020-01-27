@@ -1,10 +1,11 @@
 {
-  "name": "hello-react",
+  "name": "react-git-repo-browser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.40",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
@@ -44,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "redux-mock-store": "^1.5.4"
   }
 }
