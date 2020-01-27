@@ -4,14 +4,17 @@
     height: 100%;
 }
 
-.browser .drawer > div{
+.browser .drawer {
     width: 500px;
     position: absolute;
-    top: 0;
     left: 0;
     height: auto;
     height: 95vh;
     overflow-y: auto;
+}
+
+.browser .drawer > div{
+    display:contents;
 }
 
 .browser .drawer .commits-list .commit{
@@ -20,4 +23,14 @@
 
 .browser .drawer .commits-list .commit.selected{
     background: #DDD;
+}
+
+
+@media all and (max-width: 1005px) {
+    .browser .drawer {
+        max-height: 250px;
+        position: static !important;
+        min-width:100% !important;
+        width: 100vw !important;
+    }
 }

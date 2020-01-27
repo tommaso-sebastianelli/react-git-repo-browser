@@ -5,6 +5,7 @@
 
 .commit-details .row{
     margin-bottom: 8px;
+    width: fit-content;
 }
 
 .commit-details .row.detail{
