@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { connect } from 'react-redux'
 import { selectCommit } from '../../../redux/actions';
-import { getSelectedCommitState } from '../../../redux/selectors';
+import { getSelectedCommitState, getLoadingState } from '../../../redux/selectors';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -21,6 +21,7 @@ import {useLocation} from 'react-router-dom';
 import Moment from 'react-moment';
 
 import './commit-details.css';
+import Loading from '../../../components/loading/loading';
 
 function CommitDetails(props) {
 
@@ -138,11 +139,12 @@ function CommitDetails(props) {
                 </Grid>
             </Grid>
         </Container>
-    ) : <span />
+    ) : <Loading/>
 }
 
 const mapStateToProps = (state) => ({
-    data: getSelectedCommitState(state.commitReducer)
+    data: getSelectedCommitState(state.commitReducer),
+    loading: getLoadingState(state.commitReducer)
 })
 
 const mapDispatchToProps = (dispatch) => ({
