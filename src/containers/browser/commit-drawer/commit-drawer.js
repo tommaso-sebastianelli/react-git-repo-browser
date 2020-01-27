@@ -23,13 +23,13 @@ function CommitDrawer(props) {
     }
 
     const selectCommit = (commit) => {
-        const id = commit.tree.sha
+        const id = commit.sha
         history.push(`/browser/${props.user}/${props.repo}/${id}`);
         history.go();
     }
 
     const isSelected = (commit) => {
-        return props.selectedCommitId === commit.tree.sha;
+        return props.selectedCommitId === commit.sha;
     }
 
     return (
@@ -45,14 +45,14 @@ function CommitDrawer(props) {
                     />
                 </ListItem>
                 <List className="commits-list" >
-                    {props.commits.map((commit, index) => {
-                        return <ListItem className={'commit ' + (isSelected(commit) ? 'selected' : '')} key={index} onClick={id => selectCommit(commit)}>
+                    {props.commits.map((commitData, index) => {
+                        return <ListItem className={'commit ' + (isSelected(commitData) ? 'selected' : '')} key={index} onClick={id => selectCommit(commitData)}>
                             <ListItemIcon className="commit-icon">
                                 <Icon icon="git-commit"></Icon>
                             </ListItemIcon>
                             <ListItemText
-                                primary={commit.message}
-                                secondary={`${commit.author.name} on ${formatDate(commit.author.date)}`}
+                                primary={commitData.commit.message}
+                                secondary={`${commitData.commit.author.name} on ${formatDate(commitData.author.date)}`}
                             />
                         </ListItem>
                     })}
@@ -63,8 +63,7 @@ function CommitDrawer(props) {
 }
 
 const mapStateToProps = (state) => ({
-    commits: getCommitListState(state.searchReducer)
-        .map(c => c.commit),
+    commits: getCommitListState(state.searchReducer),
     user: getUserState(state.searchReducer),
     repo: getRepoState(state.searchReducer),
     selectedCommitId: state.commitReducer.selectedCommitId
