@@ -51,7 +51,7 @@ function CommitDetails(props) {
                         <Grid className="author" item={true}>
                             <Grid container={true} alignItems="center" spacing={2}>
                                 <Grid item={true}>
-                                    <Avatar alt="author avatar" src="/static/images/avatar/1.jpg" />
+                                    <Avatar alt="author avatar" src={props.data.author.avatar_url} />
                                 </Grid>
                                 <Grid item={true}>
                                     <Typography variant="h6">
