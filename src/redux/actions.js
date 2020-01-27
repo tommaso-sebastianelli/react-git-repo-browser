@@ -101,7 +101,7 @@ const selectCommitStart = id => ({
 const selectCommitSuccess = data => ({
   type: SELECT_COMMIT_SUCCESS,
   payload: {
-    commit: null,
+    commit: data,
     loading: false
   }
 });
