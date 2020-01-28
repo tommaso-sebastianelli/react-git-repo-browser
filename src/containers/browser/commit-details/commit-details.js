@@ -67,7 +67,7 @@ function CommitDetails(props) {
                         </Grid>
                         <Grid className="date" item={true}>
                             <Typography variant="h6">on&nbsp;
-                                <Moment format="YYYY/MM/DD">
+                                <Moment format="YYYY/MM/DD hh:mm:ss">
                                     {props.data.commit.author.date}
                                 </Moment>
                             </Typography>
@@ -79,7 +79,7 @@ function CommitDetails(props) {
                     <Grid container={true} direction="row" alignItems="flex-end" spacing={2} justify="space-between">
                         <Grid item={true}>
                             <Grid className="hash" container={true} direction="row" alignItems="flex-end" spacing={2}>
-                                <Grid item={true}>
+                                <Grid className="icon" item={true}>
                                     <Icon icon="git-commit"></Icon>
                                 </Grid>
                                 <Grid item={true}>
@@ -121,7 +121,7 @@ function CommitDetails(props) {
                                             <ListItemIcon>
                                                 <FolderIcon />
                                             </ListItemIcon>
-                                            <ListItemText class="file-name"
+                                            <ListItemText className="file-name"
                                                 primary={f.filename}
                                                 secondary={f.status}
                                             />

@@ -18,6 +18,7 @@
 }
 
 .commit-details .row.detail .hash{
+    align-items: center;
     flex-wrap: nowrap;
 }
 
@@ -53,6 +54,15 @@
 .commit-details .row.detail .file-change{
     display: flex;
     margin-left: 8px;
+}
+
+.commit-details .row.detail .hash .icon{
+    padding: 0;
+    line-height: 0;
+}
+
+.commit-details .row.detail .hash .hash-id{
+    font-size: 1rem;
 }
 
 @media all and (max-width: 1005px) {    
