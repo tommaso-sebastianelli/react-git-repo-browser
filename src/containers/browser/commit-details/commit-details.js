@@ -39,6 +39,10 @@ function CommitDetails(props) {
         console.log(location.pathname);
     }, [location]);
 
+    const getAvatarUrl = ()=>{
+        return props.data && props.data.author && props.data.author.avatar_url
+    }
+
     return props.data ? (
         <Container maxWidth="xs" className="commit-details">
             <Grid container={true} direction="column">
@@ -52,7 +56,7 @@ function CommitDetails(props) {
                         <Grid className="author" item={true}>
                             <Grid container={true} alignItems="center" spacing={2}>
                                 <Grid item={true}>
-                                    <Avatar alt="author avatar" src={props.data.author.avatar_url} />
+                                    <Avatar alt="" src={getAvatarUrl()} />
                                 </Grid>
                                 <Grid item={true}>
                                     <Typography variant="h6">
