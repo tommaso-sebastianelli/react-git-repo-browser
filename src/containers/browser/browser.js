@@ -1,25 +1,19 @@
-import React, { PureComponent } from 'react'
-
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
-import { connect } from 'react-redux'
-import store from '../../redux/store';
-import { searchRepo } from '../../redux/actions';
-import { getLoadingState } from '../../redux/selectors';
-
-import history from '../../history';
-
-import './browser.css';
-
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import Loading from '../../components/loading/loading';
-import CommitDetail from './commit-details/commit-details';
-import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
+import history from '../../history';
+import { searchRepo } from '../../redux/repository/actions';
+import { getLoadingState } from '../../redux/repository/selectors';
+import store from '../../redux/store';
 import CommitDrawer from '../browser/commit-drawer/commit-drawer';
-import Box  from '@material-ui/core/Box';
-
+import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
+import './browser.css';
+import CommitDetail from './commit-details/commit-details';
 
 class Browser extends PureComponent {
 
@@ -60,7 +54,7 @@ class Browser extends PureComponent {
 }
 const mapStateToProps = state => {
     return {
-        loading: getLoadingState(state.searchReducer)
+        loading: getLoadingState(state)
     }
 };
 

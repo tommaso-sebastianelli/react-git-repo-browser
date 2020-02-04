@@ -6,6 +6,9 @@ import '@testing-library/jest-dom/extend-expect'
 import CommitDetails from './commit-details'
 import { getCommit } from '../../../api.mock';
 import thunk from 'redux-thunk';
+import {
+    BrowserRouter as Router,
+} from "react-router-dom";
 
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([thunk]);
@@ -20,7 +23,9 @@ const getRenderedComponent = async () => {
 
     const component = render(
         <Provider store={store}>
-            <CommitDetails />
+            <Router>
+                <CommitDetails />
+            </Router>
         </Provider>
     )
     return component;

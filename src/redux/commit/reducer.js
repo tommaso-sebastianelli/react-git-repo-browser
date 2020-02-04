@@ -1,4 +1,4 @@
-import { SELECT_COMMIT_START, SELECT_COMMIT_SUCCESS, SELECT_COMMIT_FAILURE } from "../actionTypes";
+import { SELECT_COMMIT_FAILURE, SELECT_COMMIT_START, SELECT_COMMIT_SUCCESS } from "./types";
 
 const initialState = {
     selectedCommitId: null,
@@ -10,26 +10,26 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case SELECT_COMMIT_START: {
-            const { selectedCommitId, loading } = action.payload;
+            const { selectedCommitId } = action.payload;
             return {
                 ...state,
-                loading,
+                loading: true,
                 selectedCommitId
             };
         }
         case SELECT_COMMIT_SUCCESS: {
-            const { loading, commit } = action.payload;
+            const { commit } = action.payload;
             return {
                 ...state,
-                loading,
+                loading: false,
                 commit
             };
         }
         case SELECT_COMMIT_FAILURE: {
-            const { loading, error } = action.payload;
+            const { error } = action.payload;
             return {
                 ...state,
-                loading,
+                loading: false,
                 error
             };
         }

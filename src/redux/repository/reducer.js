@@ -1,4 +1,4 @@
-import { SEARCH_REPO_START, SEARCH_REPO_SUCCESS, SEARCH_REPO_FAILURE } from "../actionTypes";
+import { SEARCH_REPO_FAILURE, SEARCH_REPO_START, SEARCH_REPO_SUCCESS } from "./types";
 
 const initialState = {
   user: '',
@@ -11,27 +11,27 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SEARCH_REPO_START: {
-      const { loading, user, repo } = action.payload;
+      const { user, repo } = action.payload;
       return {
         ...state,
-        loading: loading,
+        loading: true,
         user: user,
         repo: repo
       };
     }
     case SEARCH_REPO_SUCCESS: {
-      const { loading, commits } = action.payload;
+      const { commits } = action.payload;
       return {
         ...state,
-        loading: loading,
+        loading: false,
         commits: commits
       };
     }
     case SEARCH_REPO_FAILURE: {
-      const { loading, error } = action.payload;
+      const { error } = action.payload;
       return {
         ...state,
-        loading: loading,
+        loading: false,
         error
       };
     }
