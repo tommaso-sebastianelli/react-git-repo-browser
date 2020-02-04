@@ -1,4 +1,4 @@
-import { SELECT_COMMIT_START, SELECT_COMMIT_SUCCESS, SELECT_COMMIT_FAILURE } from "../actionTypes";
+import { SELECT_COMMIT_START, SELECT_COMMIT_SUCCESS, SELECT_COMMIT_FAILURE } from "./types";
 
 const initialState = {
     selectedCommitId: null,

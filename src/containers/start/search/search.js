@@ -1,8 +1,6 @@
-import React from 'react';
-
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
-
+import React from 'react';
 import history from '../../../history';
 import './search.css';
 

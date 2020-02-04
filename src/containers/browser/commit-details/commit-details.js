@@ -1,27 +1,21 @@
-import React, { useEffect } from 'react'
-
-import { connect } from 'react-redux'
-import { selectCommit } from '../../../redux/actions';
-import { getSelectedCommitState, getLoadingState } from '../../../redux/selectors';
-
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import FolderIcon from '@material-ui/icons/Folder';
 import ListItemText from '@material-ui/core/ListItemText';
-
-import Icon from '../../../components/icon/icon';
-
-import {useLocation} from 'react-router-dom';
-
+import Typography from '@material-ui/core/Typography';
+import FolderIcon from '@material-ui/icons/Folder';
+import React, { useEffect } from 'react';
 import Moment from 'react-moment';
-
-import './commit-details.css';
+import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import Icon from '../../../components/icon/icon';
 import Loading from '../../../components/loading/loading';
+import { getLoadingState, getSelectedCommitState } from '../../../redux/commit/selectors';
+import { selectCommit } from '../../../redux/commit/actions';
+import './commit-details.css';
 
 function CommitDetails(props) {
 
@@ -147,8 +141,8 @@ function CommitDetails(props) {
 }
 
 const mapStateToProps = (state) => ({
-    data: getSelectedCommitState(state.commitReducer),
-    loading: getLoadingState(state.commitReducer)
+    data: getSelectedCommitState(state),
+    loading: getLoadingState(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

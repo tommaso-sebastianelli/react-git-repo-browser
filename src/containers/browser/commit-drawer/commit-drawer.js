@@ -11,7 +11,7 @@ import Icon from '../../../components/icon/icon';
 
 import history from '../../../history';
 
-import { getCommitListState, getUserState, getRepoState } from '../../../redux/selectors';
+import { getCommitListState, getUserState, getRepoState } from '../../../redux/repository/selectors';
 
 import './commit-drawer.css';
 
@@ -63,9 +63,9 @@ function CommitDrawer(props) {
 }
 
 const mapStateToProps = (state) => ({
-    commits: getCommitListState(state.searchReducer),
-    user: getUserState(state.searchReducer),
-    repo: getRepoState(state.searchReducer),
+    commits: getCommitListState(state),
+    user: getUserState(state),
+    repo: getRepoState(state),
     selectedCommitId: state.commitReducer.selectedCommitId
 })
 

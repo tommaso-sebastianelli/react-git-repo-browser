@@ -1,4 +1,4 @@
-import { SEARCH_REPO_START, SEARCH_REPO_SUCCESS, SEARCH_REPO_FAILURE } from "../actionTypes";
+import { SEARCH_REPO_START, SEARCH_REPO_SUCCESS, SEARCH_REPO_FAILURE } from "./types";
 
 const initialState = {
   user: '',
