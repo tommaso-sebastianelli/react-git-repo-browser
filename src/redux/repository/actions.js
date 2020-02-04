@@ -7,7 +7,6 @@ import { SEARCH_REPO_FAILURE, SEARCH_REPO_START, SEARCH_REPO_SUCCESS } from "./t
 const searchRepoStart = (user, repo) => ({
   type: SEARCH_REPO_START,
   payload: {
-    loading: true,
     user,
     repo
   }
@@ -16,20 +15,18 @@ const searchRepoStart = (user, repo) => ({
 const searchRepoSuccess = data => ({
   type: SEARCH_REPO_SUCCESS,
   payload: {
-    commits: data,
-    loading: false
+    commits: data
   }
 });
 
 const searchRepoFailure = error => ({
   type: SEARCH_REPO_FAILURE,
   payload: {
-    error,
-    loading: false
+    error
   }
 });
 
- 
+
 export const searchRepo = (user, repo) => {
   return dispatch => {
     console.log('search dispatched');

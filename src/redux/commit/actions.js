@@ -8,23 +8,20 @@ const selectCommitStart = id => ({
     type: SELECT_COMMIT_START,
     payload: {
         selectedCommitId: id,
-        loading: true
     }
 });
 
 const selectCommitSuccess = data => ({
     type: SELECT_COMMIT_SUCCESS,
     payload: {
-        commit: data,
-        loading: false
+        commit: data
     }
 });
 
 const selectCommitFailure = error => ({
     type: SELECT_COMMIT_FAILURE,
     payload: {
-        error,
-        loading: false
+        error
     }
 });
 
