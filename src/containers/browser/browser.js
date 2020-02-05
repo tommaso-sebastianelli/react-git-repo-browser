@@ -7,9 +7,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Loading from '../../components/loading/loading';
 import history from '../../history';
-import { searchRepo } from '../../redux/repository/actions';
+import { searchRepoStart } from '../../redux/repository/actions';
 import { getLoadingState } from '../../redux/repository/selectors';
-import store from '../../redux/store';
 import CommitDrawer from '../browser/commit-drawer/commit-drawer';
 import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
 import './browser.css';
@@ -20,7 +19,7 @@ class Browser extends PureComponent {
     componentDidMount() {
         const user = history.location.pathname.split('/')[2];
         const repo = history.location.pathname.split('/')[3];
-        store.dispatch(searchRepo(user, repo));
+        this.props.doSearch(user, repo);
     }
 
     goToStart() {
@@ -52,10 +51,12 @@ class Browser extends PureComponent {
         )
     }
 }
-const mapStateToProps = state => {
-    return {
-        loading: getLoadingState(state)
-    }
-};
+const mapStateToProps = state => ({
+    loading: getLoadingState(state)
+});
 
-export default connect(mapStateToProps, null)(Browser)
+const mapDispatchToProps = dispatch => ({
+    doSearch: (user, repo) => dispatch(searchRepoStart(user, repo))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Browser)

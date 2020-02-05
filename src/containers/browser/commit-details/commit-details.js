@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom';
 import Icon from '../../../components/icon/icon';
 import Loading from '../../../components/loading/loading';
 import { getLoadingState, getSelectedCommitState } from '../../../redux/commit/selectors';
-import { selectCommit } from '../../../redux/commit/actions';
+import { selectCommitStart } from '../../../redux/commit/actions';
 import './commit-details.css';
 
 function CommitDetails(props) {
@@ -146,7 +146,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onMount: (user, repo, id) => dispatch(selectCommit(user, repo, id))
+    onMount: (user, repo, id) => dispatch(selectCommitStart(user, repo, id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(CommitDetails))
