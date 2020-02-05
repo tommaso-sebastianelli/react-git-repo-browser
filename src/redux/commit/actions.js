@@ -1,9 +1,11 @@
 // import { throwError } from 'rxjs';
 import { SELECT_COMMIT_FAILURE, SELECT_COMMIT_START, SELECT_COMMIT_SUCCESS } from "./types";
 
-export const selectCommitStart = id => ({
+export const selectCommitStart = (user, repo, id) => ({
     type: SELECT_COMMIT_START,
     payload: {
+        user,
+        repo,
         selectedCommitId: id,
     }
 });
