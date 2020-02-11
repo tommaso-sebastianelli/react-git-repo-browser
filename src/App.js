@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <CssBaseline>
         <React.StrictMode>
-          <Router>
+          <Router basename={`${process.env.PUBLIC_URL}/`}>
             {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
             <Switch>
