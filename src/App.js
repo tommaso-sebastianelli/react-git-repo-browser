@@ -11,7 +11,6 @@ import {
 import Start from './containers/start/start';
 import Browser from './containers/browser/browser';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import NotFound from './containers/notFound/notFound';
 
 class App extends React.Component {
 
@@ -33,7 +32,7 @@ class App extends React.Component {
                 <Browser />
               </Route>
               <Route path="*">
-                <NotFound />
+                <Redirect to="/start" />
               </Route>
             </Switch>
           </Router>
