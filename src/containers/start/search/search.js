@@ -42,12 +42,18 @@ class Search extends React.PureComponent {
         history.go();
     }
 
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.onRepoSearch();
+        }
+    }
+
     render() {
         return (
             <div className="block">
                 <div className="search-input m-b-xs">
                     <h2 className="search-hint m-b-xs">Explore a Repository</h2>
-                    <Input defaultValue={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} className="search-input" type="text" placeholder="username/repo"></Input>
+                    <Input onKeyPress={this.handleKeyPress} defaultValue={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} className="search-input" type="text" placeholder="username/repo"></Input>
                 </div>
                 <div className="search-button">
                     <Button disabled={!this.state.inputValidity} onClick={this.onRepoSearch} variant="contained" color="primary">Search</Button>
