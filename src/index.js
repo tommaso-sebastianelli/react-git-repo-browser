@@ -23,7 +23,7 @@ import './spacing.css';
 // the correct url will be waiting in the browser's history for
 // the single page app to route accordingly.
 
-(function (l) {
+(function (l) { 
     if (l.search) {
         var q = {};
         l.search.slice(1).split('&').forEach(function (v) {
