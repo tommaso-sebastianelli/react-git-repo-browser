@@ -7,6 +7,10 @@
 
 A React-redux web app that lets you browse a git repository and view commit details.
 
+## Live Demo
+
+[here](https://tommaso-sebastianelli.github.io/react-git-repo-browser/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
