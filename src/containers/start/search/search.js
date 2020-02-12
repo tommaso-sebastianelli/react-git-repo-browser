@@ -3,6 +3,7 @@ import Input from '@material-ui/core/Input';
 import React from 'react';
 import history from '../../../history';
 import './search.css';
+import { APP_ROUTER_BASENAME } from '../../../index';
 
 class Search extends React.PureComponent {
 
@@ -37,7 +38,7 @@ class Search extends React.PureComponent {
     onRepoSearch = () => {
         const user = this.getUserFromInputValue(this.state.inputValue);
         const repo = this.getRepoFromInputValue(this.state.inputValue);
-        history.push(`/browser/${user}/${repo}`);
+        history.push(`${APP_ROUTER_BASENAME}/browser/${user}/${repo}`);
         history.go();
     }
 

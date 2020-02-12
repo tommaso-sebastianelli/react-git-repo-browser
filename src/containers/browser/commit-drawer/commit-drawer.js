@@ -14,6 +14,7 @@ import history from '../../../history';
 import { getCommitListState, getUserState, getRepoState } from '../../../redux/repository/selectors';
 
 import './commit-drawer.css';
+import { APP_ROUTER_BASENAME } from '../../..';
 
 function CommitDrawer(props) {
 
@@ -24,7 +25,7 @@ function CommitDrawer(props) {
 
     const selectCommit = (commit) => {
         const id = commit.sha
-        history.push(`/browser/${props.user}/${props.repo}/${id}`);
+        history.push(`${APP_ROUTER_BASENAME}/browser/${props.user}/${props.repo}/${id}`);
         history.go();
     }
 

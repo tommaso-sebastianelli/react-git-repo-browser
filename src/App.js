@@ -11,6 +11,7 @@ import {
 import Start from './containers/start/start';
 import Browser from './containers/browser/browser';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { APP_ROUTER_BASENAME } from '.';
 
 class App extends React.Component {
 
@@ -18,7 +19,7 @@ class App extends React.Component {
     return (
       <CssBaseline>
         <React.StrictMode>
-          <Router basename="/react-git-repo-browser">
+          <Router basename={APP_ROUTER_BASENAME}>
             {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
             <Switch>

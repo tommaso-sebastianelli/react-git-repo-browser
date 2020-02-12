@@ -13,17 +13,18 @@ import CommitDrawer from '../browser/commit-drawer/commit-drawer';
 import CommitPlaceholder from '../browser/commit-placeholder/commit-placeholder';
 import './browser.css';
 import CommitDetail from './commit-details/commit-details';
+import { APP_ROUTER_BASENAME } from '../..';
 
 class Browser extends PureComponent {
 
     componentDidMount() {
-        const user = history.location.pathname.split('/')[2];
-        const repo = history.location.pathname.split('/')[3];
+        const user = history.location.pathname.split('/')[3];
+        const repo = history.location.pathname.split('/')[4];
         this.props.doSearch(user, repo);
     }
 
     goToStart() {
-        history.push('/start');
+        history.push(`${APP_ROUTER_BASENAME}/start`);
         history.go();
     }
 

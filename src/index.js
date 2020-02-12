@@ -11,6 +11,8 @@ import ErrorHandler from './components/errorHandler/error-handler';
 import './index.css';
 import './spacing.css';
 
+export const APP_ROUTER_BASENAME = '/react-git-repo-browser';
+
 // Single Page Apps for GitHub Pages
 // https://github.com/rafrex/spa-github-pages
 // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
