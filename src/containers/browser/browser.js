@@ -18,8 +18,11 @@ import { APP_ROUTER_BASENAME } from '../..';
 class Browser extends PureComponent {
 
     componentDidMount() {
-        const user = history.location.pathname.split('/')[3];
-        const repo = history.location.pathname.split('/')[4];
+        // this wonn't work in github pages deploy
+        // const user = history.location.pathname.split('/')[3];
+        // const repo = history.location.pathname.split('/')[4];
+        const user = window.location.pathname.split('/')[3];
+        const repo = window.location.pathname.split('/')[4];
         this.props.doSearch(user, repo);
     }
 
