@@ -5,13 +5,11 @@
 <img src="https://github.com/tommaso-sebastianelli/react-git-repo-browser/blob/master/screenshots/screen_02.png" width="384">
 </p>
 
-A React-redux web app that lets you browse a git repository and view commit details.
+A React-redux web app that lets you browse a git repository and view commit details, bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Live Demo
 
 [here](https://tommaso-sebastianelli.github.io/react-git-repo-browser/)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
